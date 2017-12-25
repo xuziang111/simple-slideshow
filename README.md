@@ -1,1 +1,1 @@
-# simple-slideshow-
+# 一个简单的jq轮播
