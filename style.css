@@ -6,7 +6,11 @@
 .window{
  width:300px;
   overflow:hidden;
-  border:5px solid red;
+  border:1px solid black;
+  margin:0 auto;
+}
+#buttons{
+  text-align:center;
 }
 .red{
   color:red;
