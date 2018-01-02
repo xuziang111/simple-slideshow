@@ -1,0 +1,35 @@
+*{margin:0;padding:0;}
+*{box-sizing: border-box;}
+
+.showWindow{
+  width:200px;
+  height:150px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+
+.imgs{
+  position:relative;
+  width:100%;
+}
+.imgs > img{
+  transition: all 1000ms;
+  width: 100%;
+  position:absolute;
+  top:0;
+}
+
+.imgs > .leave{
+  transform:translateX(-100%);
+  z-index:1;
+}
+
+.imgs > .enter{
+  transform:translateX(100%);
+}
+.imgs > .current{
+  transform:translateX(0);
+  left:0;
+  z-index:1;
+}
