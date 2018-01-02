@@ -1,5 +1,5 @@
-start();
 let n;
+start();
 let stopSlide = startSlide();
 mouseAction();
 
