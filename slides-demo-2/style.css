@@ -4,7 +4,7 @@
 .showWindow{
   width:200px;
   height:150px;
-  margin:0 auto;
+  margin:10 auto;
   overflow:hidden;
 }
 
@@ -14,7 +14,7 @@
   width:100%;
 }
 .imgs > img{
-  transition: all 1000ms;
+  transition: all 500ms;
   width: 100%;
   position:absolute;
   top:0;
@@ -32,4 +32,11 @@
   transform:translateX(0);
   left:0;
   z-index:1;
+}
+
+.buttons{
+	width:200px;
+	margin:10 auto;
+	display:flex;
+	justify-content:space-between;	
 }
