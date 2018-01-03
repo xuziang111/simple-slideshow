@@ -4,7 +4,7 @@
 .showWindow{
   width:200px;
   height:150px;
-  margin:10 auto;
+  margin:0 auto;
   overflow:hidden;
 }
 
@@ -35,8 +35,8 @@
 }
 
 .buttons{
-	width:200px;
-	margin:10 auto;
-	display:flex;
-	justify-content:space-between;	
+  width:200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;	
 }
