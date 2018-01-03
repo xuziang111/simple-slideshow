@@ -48,3 +48,24 @@ $('.showWindow').on('mouseenter',function(){
     stopSlide = startSlide();
   });
 }
+
+buttonsAction();
+function buttonsAction(){
+  $('.buttons > span:nth-child(1)').on('click',(e)=>{
+    n--;
+    getImgNode(n).removeClass('enter').addClass('leave').one('transitionend', (e)=>{
+      getImgNode(n+1).removeClass('current').addClass('enter');
+    $(e.currentTarget).removeClass('leave').addClass('current');
+    });	
+    	
+  $('.buttons > span:nth-child(2)').on('click',(e)=>{
+    addLeave(getImgNode(n)) .one('transitionend', (e)=>{
+      addEnter($(e.currentTarget));
+    });
+    addCurrent(getImgNode(n+1))
+    n++;
+    });	
+  return n;
+  })
+}
+    
