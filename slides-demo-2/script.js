@@ -10,7 +10,7 @@ function startSlide(){
     });
     addCurrent(getImgNode(n+1))
     n++;
-  },2000);
+  },3000);
 };
 
 function x(n){
