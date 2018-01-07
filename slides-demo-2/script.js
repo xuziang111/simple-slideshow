@@ -50,6 +50,7 @@ $('.showWindow').on('mouseenter',function(){
 }
 
 buttonsAction();
+
 function buttonsAction(){
   $('.buttons > span:nth-child(1)').on('click',(e)=>{
     n--;
