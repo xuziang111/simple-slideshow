@@ -8,7 +8,7 @@ flip()
 	
 $('.buttons>span:nth-child(1)').on('click',function(){
   $slides.css({
-        transform:'translateX(-200px) translateZ(0)'
+        transform:'translateX(-670px) translateZ(0)'
 	 })
 	if(n===4){ 
    endToStart()
@@ -17,19 +17,19 @@ $('.buttons>span:nth-child(1)').on('click',function(){
 });
 $('.buttons>span:nth-child(2)').on('click',function(){
    $slides.css({
-        transform:'translateX(-400px) translateZ(0)'
+        transform:'translateX(-1340px) translateZ(0)'
       });
 	n=2;
 });
 $('.buttons>span:nth-child(3)').on('click',function(){
    $slides.css({
-        transform:'translateX(-600px) translateZ(0)'
+        transform:'translateX(-2010px) translateZ(0)'
       });
 	n=3;
 });
 $('.buttons>span:nth-child(4)').on('click',function(){
    $slides.css({
-        transform:'translateX(-800px) translateZ(0)'
+        transform:'translateX(-2680px) translateZ(0)'
       });
 	if(n===1){
     startToEnd();
@@ -47,17 +47,12 @@ function makeClone(){
 function makeSlide(){
 	return	setInterval(function(){
   $slides.css({
-		transform:`translateX(${inturn(n)*-200}px)`
+		transform:`translateX(${inturn(n)*-670}px)`
 	}).offset();	
-		if(inturn(n)===1){
-	$slides.css({
-        transform:'translateX(-1000px) translateZ(0)'
-	 }).one('transitionend', function(){
-	 	  $slides.hide().offset();
-    $slides.css({transform:'translateX(-200px)'}).show();
-	 });
+	if(inturn(n)===1){
+      endToStart();
 	}
-		n++;
+	n++;
 },2000)		
 }
 var stopSlide = 	makeSlide();
@@ -76,7 +71,7 @@ function inturn(n){
 function flip(){	
   $('.show-window>span:nth-child(3)').on('click',function(){
 		  $slides.css({
-		transform:`translateX(${inturn(n)*-200}px)`
+		transform:`translateX(${inturn(n)*-670}px)`
 	}).offset();	
 		if(inturn(n)===1){
      endToStart()
@@ -106,16 +101,16 @@ document.addEventListener('visibilitychange',function(){
 	
 function endToStart(){
 	$slides.css({
-        transform:'translateX(-1000px) translateZ(0)'
+        transform:'translateX(-3350px) translateZ(0)'
 	 }).one('transitionend', function(){
 	 	  $slides.hide().offset();
-    $slides.css({transform:'translateX(-200px)'}).show();
+    $slides.css({transform:'translateX(-670px)'}).show();
 	 });
 }function startToEnd(){
 	$slides.css({
         transform:'translateX(0px) translateZ(0)'
 	 }).one('transitionend', function(){
 	 	  $slides.hide().offset();
-    $slides.css({transform:'translateX(-800px)'}).show();
+    $slides.css({transform:'translateX(-2680px)'}).show();
 	 });
 }
