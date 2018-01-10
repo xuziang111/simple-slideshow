@@ -1,7 +1,7 @@
 let $buttons = $(buttons);
 let $slides = $('#slides');
 let $images = $slides.children('img')
-let n=0
+let n=1
 		
 makeClone()
 flip()
