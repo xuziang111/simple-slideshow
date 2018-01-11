@@ -53,6 +53,7 @@ span:hover{
   display:flex;
   justify-content:center;
   background: linear-gradient(to bottom,#F0F0F0, #ECECEC);
+	border-top:1px solid #D7D7D7;
 }
 .buttons>span{
   width:50px;
