@@ -5,6 +5,7 @@ let n=1
 		
 makeClone()
 flip()
+mousuActive()
 	
 $('.buttons>span:nth-child(1)').on('click',function(){
   $slides.css({
