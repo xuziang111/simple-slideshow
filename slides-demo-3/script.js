@@ -50,7 +50,7 @@ function makeSlide(){
   },2000)		
 }
 
-var stopSlide = 	makeSlide();
+var stopSlide = makeSlide();
 
 function mousuActive(){
   $('.container').on('mouseenter',function(){
