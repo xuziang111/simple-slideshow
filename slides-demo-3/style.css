@@ -1,4 +1,8 @@
 *{margin:0; padding:0;}
+.body{
+	background:#F2F2F2;
+	height:100vh;
+}
 .show-window{
   width:670px;
   height:470px;
@@ -48,7 +52,7 @@ span:hover{
 .buttons{
   display:flex;
   justify-content:center;
-  background:#F0F0F0
+  background: linear-gradient(to bottom,#F0F0F0, #ECECEC);
 }
 .buttons>span{
   width:50px;
