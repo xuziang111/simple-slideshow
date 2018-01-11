@@ -6,38 +6,29 @@ let n=1
 makeClone()
 flip()
 mousuActive()
+buttonsActive()
+windowActive()
 	
-$buttons.eq(0).on('click',function(){
-  $slides.css({
-    transform:'translateX(-670px) translateZ(0)'
-	})
-	if(n===4){ 
-    endToStart()
-  }
-  n=1;
-});
-$buttons.eq(1).on('click',function(){
-  $slides.css({
-    transform:'translateX(-1340px) translateZ(0)'
-  });
-	n=2;
-});
-$buttons.eq(2).on('click',function(){
-  $slides.css({
-    transform:'translateX(-2010px) translateZ(0)'
-  });
-	n=3;
-});
-$buttons.eq(3).on('click',function(){
-  $slides.css({
-    transform:'translateX(-2680px) translateZ(0)'
-  });
-	if(n===1){
-    startToEnd();
+function buttonsActive(){
+  $('#buttons').on('click','span',function(e){
+	  let $button = $(e.currentTarget);
+	  let index = $button.index();
+	  if(inturn(n) === $buttons.length-1 && index === 0){
+		endToStart($buttons.length);
+			n=0;
+	  }else if(inturn(n) === 0 && index=== $buttons.length-1){
+		startToEnd($buttons.length);
+			n=$buttons.length-1
+	  }else{
+	    $slides.css({
+          transform:`translateX(${- (index + 1) * 670}px) translateZ(0)`
+	  })
+			n = index;
+		console.log(index)
 	}
-	n=4;
-});
-
+  })
+}
+	
 function makeClone(){
   let $firstCopy = $images.eq(0).clone(true)
   let $lastCopy = $images.eq($images.length-1).clone(true)
@@ -48,14 +39,17 @@ function makeClone(){
 function makeSlide(){
 	return	setInterval(function(){
     $slides.css({
-	  	transform:`translateX(${inturn(n)*-670}px)`
+	  	transform:`translateX(${(inturn(n)+1)*-670}px)`
 	  }).offset();	
-	  if(inturn(n)===1){
-       endToStart();
+	  if(inturn(n)===0){
+       endToStart($buttons.length);
+			 n=0;
 	  }
+	console.log(n)
 	  n++;
   },2000)		
 }
+
 var stopSlide = 	makeSlide();
 
 function mousuActive(){
@@ -68,32 +62,35 @@ function mousuActive(){
 };
 
 function inturn(n){
-   return n%4+1;
+   return n%4;
 }
 
-function flip(){	
-  $('.show-window>span:nth-child(3)').on('click',function(){
-	  $slides.css({
+function flip(){
+  $('.show-window>span:nth-child(2)').on('click',function(){
+	  n=n+3;
+		console.log(n)
+		$slides.css({
 		  transform:`translateX(${inturn(n)*-670}px)`
 	  }).offset();	
-	  if(inturn(n)===1){
-      endToStart()
+		if(inturn(n)===0){
+     startToEnd($buttons.length)
 	  }
-	  n++;
   });
-	
-  $('.show-window>span:nth-child(2)').on('click',function(){
-	  n=n+2;
-		$slides.css({
-		  transform:`translateX(${inturn(n)*-200}px)`
+
+  $('.show-window>span:nth-child(3)').on('click',function(){
+    $slides.css({
+	  	transform:`translateX(${(inturn(n)+1)*-670}px)`
 	  }).offset();	
-		if(inturn(n)===4){
-     startToEnd()
+	  if(inturn(n)===0){
+       endToStart($buttons.length);
+			 n=0;
 	  }
-		n=n+1;
+	console.log(n)
+	  n++;
   });
 }
 
+function windowActive(){	
 document.addEventListener('visibilitychange',function(){
   if(document.hidden===false){
 	   stopSlide = makeSlide();
@@ -101,21 +98,22 @@ document.addEventListener('visibilitychange',function(){
 	  window.clearInterval(stopSlide);
 	}
 })
-
-function endToStart(){
+}
+	
+function endToStart(x){
 	$slides.css({
-    transform:'translateX(-3350px) translateZ(0)'
+    transform:`translateX(${-(x + 1)*670}px) translateZ(0)`
 	 }).one('transitionend', function(){
 	 	  $slides.hide().offset();
   $slides.css({transform:'translateX(-670px)'}).show();
 	 });
 }
 
-function startToEnd(){
+function startToEnd(x){
 	$slides.css({
     transform:'translateX(0px) translateZ(0)'
 	}).one('transitionend', function(){
 	$slides.hide().offset();
-    $slides.css({transform:'translateX(-2680px)'}).show();
+    $slides.css({transform:`translateX(${-x * 670}px)`}).show();
 	});
 }
