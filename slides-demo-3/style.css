@@ -26,6 +26,8 @@
 	left:50%;
   transform: translateX(-50%) translateY(-50%);
   border:1px solid #D7D7D7;
+	box-shadow:1px 1px 1px #D7D7D7;
+	border-radius:2px;
 }
 
 .show-window>span:nth-child(2){
@@ -53,7 +55,7 @@ span:hover{
   display:flex;
   justify-content:center;
   background: linear-gradient(to bottom,#F0F0F0, #ECECEC);
-	border-top:1px solid #D7D7D7;
+	border-top:2px solid #D7D7D7;
 }
 .buttons>span{
   width:50px;
@@ -65,4 +67,7 @@ span:hover{
 }
 .buttons>span:hover{
   background:grey;
+}
+h1,h2,p{
+  text-align:center
 }
