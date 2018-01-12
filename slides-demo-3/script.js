@@ -21,7 +21,7 @@ function buttonsActive(){
 			n=$buttons.length-1
 	  }else{
 	    $slides.css({
-          transform:`translateX(${- (index + 1) * 670}px) translateZ(0)`
+          transform:`translateX(${- (index + 1) * 600}px) translateZ(0)`
 	  })
 			n = index;
 		console.log(index)
@@ -39,7 +39,7 @@ function makeClone(){
 function makeSlide(){
 	return	setInterval(function(){
     $slides.css({
-	  	transform:`translateX(${(inturn(n)+1)*-670}px)`
+	  	transform:`translateX(${(inturn(n)+1)*-600}px)`
 	  }).offset();	
 	  if(inturn(n)===0){
        endToStart($buttons.length);
@@ -70,7 +70,7 @@ function flip(){
 	  n=n+3;
 		console.log(n)
 		$slides.css({
-		  transform:`translateX(${inturn(n)*-670}px)`
+		  transform:`translateX(${inturn(n)*-600}px)`
 	  }).offset();	
 		if(inturn(n)===0){
      startToEnd($buttons.length)
@@ -79,7 +79,7 @@ function flip(){
 
   $('.show-window>span:nth-child(3)').on('click',function(){
     $slides.css({
-	  	transform:`translateX(${(inturn(n)+1)*-670}px)`
+	  	transform:`translateX(${(inturn(n)+1)*-600}px)`
 	  }).offset();	
 	  if(inturn(n)===0){
        endToStart($buttons.length);
@@ -102,10 +102,10 @@ document.addEventListener('visibilitychange',function(){
 	
 function endToStart(x){
 	$slides.css({
-    transform:`translateX(${-(x + 1)*670}px) translateZ(0)`
+    transform:`translateX(${-(x + 1)*600}px) translateZ(0)`
 	 }).one('transitionend', function(){
 	 	  $slides.hide().offset();
-  $slides.css({transform:'translateX(-670px)'}).show();
+  $slides.css({transform:'translateX(-600px)'}).show();
 	 });
 }
 
@@ -114,6 +114,6 @@ function startToEnd(x){
     transform:'translateX(0px) translateZ(0)'
 	}).one('transitionend', function(){
 	$slides.hide().offset();
-    $slides.css({transform:`translateX(${-x * 670}px)`}).show();
+    $slides.css({transform:`translateX(${-x * 600}px)`}).show();
 	});
 }
